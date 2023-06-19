@@ -1,5 +1,5 @@
 {
-    "name": "lucete_v2",
+    "name": "cms_campus",
     "version": "2.0.0",
     "description": "API SOCKET built with NodeJS, Express, MySql and TypeScript",
     "main": "src/server.ts",

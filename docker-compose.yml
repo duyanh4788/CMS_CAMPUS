@@ -3,31 +3,34 @@ version: '3.4'
 services:
   redis:
     image: redis:7.2-rc
-    container_name: lucete_redis
-    environment:
-      REDIS_URL: redis://redis:6379
+    container_name: cms_campus_redis
+    ports:
+      - '6381:6379'
     volumes:
       - .docker/data/redis:/data
     restart: always
 
+  mysql:
+    image: mysql:latest
+    container_name: cms_campus_mysql
+    ports:
+      - '3308:3306'
+    volumes:
+      - ./init_db:/docker-entrypoint-initdb.d
+      - .docker/data/mysql:/data
+    environment:
+      - MYSQL_DATABASE=CMS_CAMPUS
+      - MYSQL_ROOT_PASSWORD=12345
+    command: bash -c "cp /docker-entrypoint-initdb.d/init-cms-campus.sql /docker-entrypoint-initdb.d/init-cms-campus-temp.sql && docker-entrypoint.sh --init-file /docker-entrypoint-initdb.d/init-cms-campus-temp.sql"
+    restart: always
+
   app:
-    image: lucete:v1
+    image: cms_campus:v1
     build: .
     ports:
-      - '8002:8002'
+      - '8000:8000'
     env_file: .env
-    environment:
-      - APP_NAME=${APP_NAME}
-      - APP_ENV=${APP_ENV}
-      - APP_URL=${APP_URL}
-      - APP_PORT=${APP_PORT}
-      - REDIS_URL=${REDIS_URL}
-      - MAX_REQUEST=${MAX_REQUEST}
-      - DB_CONNECTION=mysql
-      - DB_HOST=lucete-database-do-user-13713274-0.b.db.ondigitalocean.com
-      - DB_PORT=25060
-      - DB_DATABASE=lucete_database_new
-      - DB_USERNAME=admin
-      - DB_PASSWORD=AVNS_j7_KjsKPnwenqxCC4eA
     depends_on:
       - redis
+      - mysql
+    command: ['./scripts/wait-for-it.sh', '-t', '10', 'redis:6380', '--', 'node', 'build/server.js']

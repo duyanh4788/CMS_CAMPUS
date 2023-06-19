@@ -1,0 +1,2053 @@
+{
+	"info": {
+		"_postman_id": "317be21e-5fb5-4975-92e7-892d03be2897",
+		"name": "CMS_CAMPUS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17282698"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "parent signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"student01\",\n    \"userName\" : \"student01\",\n    \"email\" : \"student01@gmail.com\",\n    \"password\" : \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/parent-signup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"parent-signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userName\" : \"teacher001\",\n    \"password\" : \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"test001@gmail.com\",\n    \"password\" : \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/get-user-by-id/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"get-user-by-id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "admin create campus",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test8\",\n    \"indicated\": \"12345\",\n    \"contact\": \"test8\",\n    \"activate\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/admin/create-campus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"create-campus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin update campus",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"campusId\": 1,\n    \"name\": \"test3\",\n    \"indicated\": \"123456\",\n    \"contact\": \"test3\",\n    \"activate\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/admin/update-campus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"update-campus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin update multi active",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"campusIds\": [1,2,3],\n    \"activate\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/admin/update-active-multi-campus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"update-active-multi-campus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get campus by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/admin/get-campus-by-id/:campusId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"get-campus-by-id",
+								":campusId"
+							],
+							"variable": [
+								{
+									"key": "campusId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-list-campus",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"duyanhtest001\",\n    \"email\": \"duyanhtest001@yahoo.com.vn\",\n    \"gender\": \"Male\",\n    \"dateOfBirth\": \"2023-06-05\",\n    \"activate\": 1,\n    \"country\": \"Korea\",\n    \"timeZone\": \"GMT+7\",\n    \"startDate\": \"2023-06-13\",\n    \"resignation\": 1,\n    \"campusId\": \"CP00002\",\n    \"talkSamId\": \"duyanhtest001\",\n    \"role\": \"Campus Manager\",\n    \"type\": \"online\",\n    \"memo\": \"test\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/admin/get-list-campus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"get-list-campus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-list-campus none teacher",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"duyanhtest001\",\n    \"email\": \"duyanhtest001@yahoo.com.vn\",\n    \"gender\": \"Male\",\n    \"dateOfBirth\": \"2023-06-05\",\n    \"activate\": 1,\n    \"country\": \"Korea\",\n    \"timeZone\": \"GMT+7\",\n    \"startDate\": \"2023-06-13\",\n    \"resignation\": 1,\n    \"campusId\": \"CP00002\",\n    \"talkSamId\": \"duyanhtest001\",\n    \"role\": \"Campus Manager\",\n    \"type\": \"online\",\n    \"memo\": \"test\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/admin/get-list-campus-none-teacher",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"get-list-campus-none-teacher"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Offline Class",
+			"item": [
+				{
+					"name": "find-student-with-product-id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productIds\": [\n        41\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/classes-offline/find-student-with-product-id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"find-student-with-product-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check-time-duplicate-student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentIds\": [\n        2,\n        3,\n        7\n    ],\n    \"dateTimeSlot\": [\n        {\n            \"MON\": 3\n        },\n        {\n            \"THU\": 3\n        },\n        {\n            \"SUN\": 3\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/classes-offline/check-time-student-offline",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"check-time-student-offline"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check-time-teacher-offline",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"classStartDate\": \"2023-06-15T02:23:24.000Z\",\n    \"dateTimeSlot\": [\n        {\n            \"MON\": 2\n        },\n        {\n            \"THU\": 3\n        },\n        {\n            \"SUN\": 4\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/classes-offline/check-time-teacher-offline",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"check-time-teacher-offline"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register-class-offline",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentList\": [\n        {\n            \"studentMnMActivityId\": 1,\n            \"studentId\": 2\n        },\n        {\n            \"studentMnMActivityId\": 4,\n            \"studentId\": 3\n        },\n        {\n            \"studentMnMActivityId\": 6,\n            \"studentId\": 7\n        }\n    ],\n    \"campusId\": 1,\n    \"teacherId\": 12,\n    \"productIds\": [\n        41\n    ],\n    \"name\": \"Class Test 003\",\n    \"level\": \"E Level\",\n    \"numberOfStudent\": 6,\n    \"classStartDate\": \"2023-06-15T02:23:24.000Z\",\n    \"classEndDate\": \"2023-08-15T02:23:24.000Z\",\n    \"dateTimeSlot\": [\n        {\n            \"MON\": 2\n        },\n        {\n            \"THU\": 3\n        },\n        {\n            \"SUN\": 4\n        }\n    ],\n    \"statusUnit\": \"test03\",\n    \"typeOfClass\": \"offline\",\n    \"initialTextbook\": \"test\",\n    \"category\": \"offline\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/classes-offline/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register student in class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"classId\": 8,\n    \"studentList\": [\n        {\n            \"studentMnMActivityId\": 1,\n            \"studentId\": 2\n        },\n        {\n            \"studentMnMActivityId\": 4,\n            \"studentId\": 3\n        },\n        {\n            \"studentMnMActivityId\": 6,\n            \"studentId\": 7\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/classes-offline/register-student-inclass",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"register-student-inclass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove student in class",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"classId\": 8,\n    \"studentIds\": [\n        2,\n        3,\n        7\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/classes-offline/remove-student-in-class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"remove-student-in-class"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-list-class",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentList\": [\n        {\n            \"studentMnMActivityId\": 1,\n            \"studentId\": 2\n        },\n        {\n            \"studentMnMActivityId\": 2,\n            \"studentId\": 5\n        }\n    ],\n    \"campusId\": 1,\n    \"teacherId\": 11,\n    \"productIds\": [\n        42,\n        43\n    ],\n    \"name\": \"Class Test 002\",\n    \"level\": \"EKong\",\n    \"numberOfStudent\": 7,\n    \"classStartDate\": \"2023-06-15T02:23:24.000Z\",\n    \"classEndDate\": \"2023-08-15T02:23:24.000Z\",\n    \"dateTimeSlot\": [\n        {\n            \"MON\": 1\n        },\n        {\n            \"THU\": 2\n        },\n        {\n            \"SUN\": 3\n        }\n    ],\n    \"statusUnit\": \"test01\",\n    \"typeOfClass\": \"offline\",\n    \"initialTextbook\": \"test\",\n    \"category\": \"offline\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/classes-offline/get-list-class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"get-list-class"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-student-class",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"studentList\": [\n        {\n            \"studentMnMActivityId\": 1,\n            \"studentId\": 2\n        },\n        {\n            \"studentMnMActivityId\": 2,\n            \"studentId\": 5\n        }\n    ],\n    \"campusId\": 1,\n    \"teacherId\": 11,\n    \"productIds\": [\n        42,\n        43\n    ],\n    \"name\": \"Class Test 002\",\n    \"level\": \"EKong\",\n    \"numberOfStudent\": 7,\n    \"classStartDate\": \"2023-06-15T02:23:24.000Z\",\n    \"classEndDate\": \"2023-08-15T02:23:24.000Z\",\n    \"dateTimeSlot\": [\n        {\n            \"MON\": 1\n        },\n        {\n            \"THU\": 2\n        },\n        {\n            \"SUN\": 3\n        }\n    ],\n    \"statusUnit\": \"test01\",\n    \"typeOfClass\": \"offline\",\n    \"initialTextbook\": \"test\",\n    \"category\": \"offline\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/classes-offline/get-student-class/:classId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"get-student-class",
+								":classId"
+							],
+							"variable": [
+								{
+									"key": "classId",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "create teacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"duyanhtest002\",\n    \"email\": \"duyanhtest002@yahoo.com.vn\",\n    \"gender\": \"Male\",\n    \"dateOfBirth\": \"2023-06-05\",\n    \"activate\": 1,\n    \"country\": \"Korea\",\n    \"timeZone\": \"GMT+7\",\n    \"startDate\": \"2023-06-13\",\n    \"resignation\": 1,\n    \"campusId\": 5,\n    \"talkSamId\": \"duyanhtest002\",\n    \"role\": \"Campus Manager\",\n    \"type\": \"online\",\n    \"memo\": \"test\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers/create-teacher",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"create-teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update teacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"teacherId\": 1,\n    \"name\": \"duyanhtest001\",\n    \"email\": \"duyanhtest001@yahoo.com.vn\",\n    \"gender\": \"Male\",\n    \"dateOfBirth\": \"2023-06-05\",\n    \"activate\": 1,\n    \"country\": \"Korea\",\n    \"timeZone\": \"GMT+7\",\n    \"startDate\": \"2023-06-13\",\n    \"resignation\": 1,\n    \"campusId\": \"CP00002\",\n    \"talkSamId\": \"duyanhtest001\",\n    \"role\": \"Campus Manager\",\n    \"type\": \"online\",\n    \"memo\": \"test\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers/update-teacher",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"update-teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update activate teacher",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"teacherIds\" : []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers/update-multi-activate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"update-multi-activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list teacher online",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers/get-all-list-teacher",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"get-all-list-teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list teacher offline",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers/get-list-teacher-offline",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"get-list-teacher-offline"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get teacher by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers/get-teacher-by-id/:teacherId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"get-teacher-by-id",
+								":teacherId"
+							],
+							"variable": [
+								{
+									"key": "teacherId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create class report",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": 7,\r\n    \"classId\": 1,\r\n    \"teacherId\": 11,\r\n    \"campusId\": 1,\r\n    \"date\": \"2023-06-05\",\r\n    \"status\": \"true\",\r\n    \"comment\": \"good\",\r\n    \"attendance\": \"CHECKED IN\",\r\n    \"preparation\": 3,\r\n    \"attitude\": 4,\r\n    \"participation\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/teachers/create-class-report",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"teachers",
+								"create-class-report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "create student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"studenttest001\",\n    \"email\": \"studenttest001@gmail.com\",\n    \"gender\": \"Male\",\n    \"dateOfBirth\": \"2023-06-01T01:36:47.403Z\",\n    \"country\": \"Korea\",\n    \"timeZone\": \"GMT+9\",\n    \"introduction\": \"studenttest001\",\n    \"talkSamId\": \"studenttest001\",\n    \"password\": \"1\",\n    \"userName\": \"studenttest001\",\n    \"activate\": \"\",\n    \"productIds\": [\n        35,\n        36\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/create-student",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"create-student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"teacherId\": 1,\n    \"name\": \"duyanhtest001\",\n    \"email\": \"duyanhtest001@yahoo.com.vn\",\n    \"gender\": \"Male\",\n    \"dateOfBirth\": \"2023-06-05\",\n    \"activate\": 1,\n    \"country\": \"Korea\",\n    \"timeZone\": \"GMT+7\",\n    \"startDate\": \"2023-06-13\",\n    \"resignation\": 1,\n    \"campusId\": \"CP00002\",\n    \"talkSamId\": \"duyanhtest001\",\n    \"role\": \"Campus Manager\",\n    \"type\": \"online\",\n    \"memo\": \"test\",\n    \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/update-student",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"update-student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update activate student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"teacherIds\" : []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/update-multi-activate",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"update-multi-activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get list student",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/get-list-student",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"get-list-student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get student by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/get-student-by-id/:studentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"get-student-by-id",
+								":studentId"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": "121"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-group-match-activity-by-student-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/get-group-match-activity-by-student-id/:studentId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"get-group-match-activity-by-student-id",
+								":studentId"
+							],
+							"variable": [
+								{
+									"key": "studentId",
+									"value": "116"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get student match activity by product id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/get-student-match-activity-by-product-id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"get-student-match-activity-by-product-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add more prodcut student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/add-new-product",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"add-new-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update prodcut student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": 116,\r\n    \"productIds\": [\r\n        36,\r\n        35\r\n    ],\r\n    \"studentMnMActivityId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/update-new-product",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"update-new-product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create class feedback",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": 7,\r\n    \"classId\": 1,\r\n    \"teacherId\": 11,\r\n    \"campusId\": 1,\r\n    \"date\": \"2023-06-05\",\r\n    \"satisfaction\": \"4\",\r\n    \"comment\": \"good\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students/create-class-feedback",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students",
+								"create-class-feedback"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Group",
+					"item": [
+						{
+							"name": "admin get group detail",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"groupId\": \"2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/groups/get-group-detail",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"groups",
+										"get-group-detail"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin get all group",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/groups/get-all-group",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"groups",
+										"get-all-group"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin create group",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{tokenav}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"grache6\",\r\n    \"matchActivities\": [\r\n        {\r\n            \"name\": \"oha1\",\r\n            \"time\": \"10\",\r\n            \"type\": \"online\"\r\n        },\r\n        {\r\n            \"name\": \"oha2\",\r\n            \"time\": \"10\",\r\n            \"type\": \"online\"\r\n        },\r\n        {\r\n            \"name\": \"oha1\",\r\n            \"time\": \"10\",\r\n            \"type\": \"online\"\r\n        },\r\n        {\r\n            \"name\": \"oha2\",\r\n            \"time\": \"10\",\r\n            \"type\": \"online\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/groups/create-group",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"groups",
+										"create-group"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin update group",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"groupId\": \"1\",\r\n    \"name\": \"grache3\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/groups/update-group",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"groups",
+										"update-group"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update-activity",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"matchedActivityId\":\"2\",\r\n    \"name\": \"ohuda\",\r\n    \"time\": \"15\",\r\n    \"type\": \"offline\",\r\n    \"groupId\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/groups/update-activity",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"groups",
+										"update-activity"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Activity",
+					"item": [
+						{
+							"name": "update-activity",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"matchedActivityId\": 2,\r\n    \"name\": \"test\",\r\n    \"time\": 10,\r\n    \"groupId\": 1,\r\n    \"type\": \"online\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/activitie/update-activity",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"activitie",
+										"update-activity"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-all-activity",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/activitie/get-all-activity",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"activitie",
+										"get-all-activity"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "prod",
+					"item": [
+						{
+							"name": "create-product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{tokenav}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"DUYANHTEST005\",\r\n    \"level\": \"M11\",\r\n    \"groupIds\": [\r\n        2,\r\n        1,\r\n        3\r\n    ],\r\n    \"category\": \"offline\",\r\n    \"type\": \"lab\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products/create-product",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"create-product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update-product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{tokenav}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"prodcutId\": 1,\r\n    \"name\": \"test\",\r\n    \"level\": \"Elevel\",\r\n    \"details\": \"test\",\r\n    \"activate\": 1,\r\n    \"type\": \"online\",\r\n    \"category\": \"online\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products/update-product",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"update-product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-list-product",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{tokenav}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products/get-list-product",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"get-list-product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get-product-by-id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"matchedActivityId\": 2,\r\n    \"name\": \"test\",\r\n    \"time\": 10,\r\n    \"groupId\": 1,\r\n    \"type\": \"online\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/products/get-product-by-id/:productId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"products",
+										"get-product-by-id",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "courses",
+					"item": [
+						{
+							"name": "create course",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{tokenav}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"level\": \"E Level\",\n    \"course\": \"E7-1\",\n    \"unit\": 8\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/courses/created-course",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"courses",
+										"created-course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update course",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{tokenav}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"courseId\": 1,\n    \"level\": \"E Level\",\n    \"course\": \"E7-1\",\n    \"unit\": 8\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/courses/updated-course",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"courses",
+										"updated-course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get list course",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{tokenav}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/courses/get-list-course",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"courses",
+										"get-list-course"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get course by id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{tokenav}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"courseId\": 1,\n    \"level\": \"E Level\",\n    \"course\": \"E7-1\",\n    \"unit\": 8\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/courses/get-list-course/:courseId",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"courses",
+										"get-list-course",
+										":courseId"
+									],
+									"variable": [
+										{
+											"key": "courseId",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Class Setting",
+			"item": [
+				{
+					"name": "update class time slot",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"classTimeSlotId\": 1,\r\n    \"name\": \"E Time 1\",\r\n    \"classStartTime\": \"08:00:00\",\r\n    \"classEndTime\": \"10:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/class-time-slot/update-class-time-slot",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"class-time-slot",
+								"update-class-time-slot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create class time slot",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"E Time 16\",\r\n    \"classStartTime\": \"10:00:00\",\r\n    \"classEndTime\": \"08:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/class-time-slot/create-class-time-slot",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"class-time-slot",
+								"create-class-time-slot"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find all class time slot",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/class-time-slot/find-all-class-time-slot",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"class-time-slot",
+								"find-all-class-time-slot"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Study Planner",
+			"item": [
+				{
+					"name": "get student by classid",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tokenav}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"classId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/study-planner/get-study-planer-all-class",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"study-planner",
+								"get-study-planer-all-class"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status study planner",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"2\",\r\n    \"studentMatchActivityId\": \"1\",\r\n    \"status\": \"incomplete\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/study-planner/update-status",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"study-planner",
+								"update-status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get student study planner",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"4\",\r\n    \"classId\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/study-planner/get-student-study-planner",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"study-planner",
+								"get-student-study-planner"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "class for teacher",
+			"item": [
+				{
+					"name": "get list class teacher by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tc}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/classes-offline/teachers/get-list-class-by-teacher-id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"teachers",
+								"get-list-class-by-teacher-id"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get class byclass  id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tc}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/classes-offline/teachers/get-class-by-class-id/:classId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"teachers",
+								"get-class-by-class-id",
+								":classId"
+							],
+							"variable": [
+								{
+									"key": "classId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get class byclass  id Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{tc}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/classes-offline/teachers/get-class-by-class-id/:classId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"classes-offline",
+								"teachers",
+								"get-class-by-class-id",
+								":classId"
+							],
+							"variable": [
+								{
+									"key": "classId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

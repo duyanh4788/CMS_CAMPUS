@@ -29,7 +29,7 @@ class App {
     this.configCors();
     this.configJson();
     this.validateRequestLimits();
-    this.App.use('/lucete3/api', this.ApiRouter);
+    this.App.use('/api/v1', this.ApiRouter);
     this.routers.routes(this.ApiRouter);
   }
 

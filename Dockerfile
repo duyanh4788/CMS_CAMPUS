@@ -12,10 +12,12 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 8002
+EXPOSE 8000
+
+RUN chmod +x ./scripts/wait-for-it.sh
 
 # Development
-CMD ["node", "build/server.js"]
+CMD ["bash", "./scripts/start-app.sh"]
 
 # Production
 # RUN npm install -g pm2
