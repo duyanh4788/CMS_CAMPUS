@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  redis:
+    image: redis:7.2-rc
+    container_name: lucete_redis
+    environment:
+      REDIS_URL: redis://redis:6379
+    volumes:
+      - .docker/data/redis:/data
+    restart: always
+
+  app:
+    image: lucete:v1
+    build: .
+    ports:
+      - '8002:8002'
+    env_file: .env
+    environment:
+      - APP_NAME=${APP_NAME}
+      - APP_ENV=${APP_ENV}
+      - APP_URL=${APP_URL}
+      - APP_PORT=${APP_PORT}
+      - REDIS_URL=${REDIS_URL}
+      - MAX_REQUEST=${MAX_REQUEST}
+      - DB_CONNECTION=mysql
+      - DB_HOST=lucete-database-do-user-13713274-0.b.db.ondigitalocean.com
+      - DB_PORT=25060
+      - DB_DATABASE=lucete_database_new
+      - DB_USERNAME=admin
+      - DB_PASSWORD=AVNS_j7_KjsKPnwenqxCC4eA
+    depends_on:
+      - redis
