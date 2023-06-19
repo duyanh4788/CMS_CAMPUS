@@ -1,4 +1,4 @@
-# Lucete NodeJS
+# CMS CAMPUS NodeJS
 
 ## Quick Install
 
