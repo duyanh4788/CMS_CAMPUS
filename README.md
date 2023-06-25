@@ -1,4 +1,5 @@
 # CMS CAMPUS NodeJS
+The Multi-Campus Management project enables campus managers to create study programs, develop study planners, and register teachers and students. Key features include campus management, study program creation, class scheduling, teacher and student registration, and schedule conflict prevention.
 
 ## Quick Install
 
