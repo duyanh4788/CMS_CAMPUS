@@ -1,4 +1,5 @@
 # CMS CAMPUS NodeJS
+The Multi-Campus Management project enables campus managers to create study programs, develop study planners, and register teachers and students. Key features include campus management, study program creation, class scheduling, teacher and student registration, and schedule conflict prevention.
 
 ## Quick Install
 
@@ -12,5 +13,8 @@
     _At this point you can see the example app at `http://localhost:8000`._
     Now you're ready to rumble!
 
-> You can run with docker or docker-compose <br
-> `$ docker-compose up -d --build` <br> > `$ docker-compose stop` <br>
+- You can run with docker or docker-compose
+
+1. Copy file `.env.docker` to `.env`
+2. Run `$ docker-compose build`
+3. Run `$ docker-compose up`
