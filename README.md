@@ -12,5 +12,8 @@
     _At this point you can see the example app at `http://localhost:8000`._
     Now you're ready to rumble!
 
-> You can run with docker or docker-compose <br
-> `$ docker-compose up -d --build` <br> > `$ docker-compose stop` <br>
+- You can run with docker or docker-compose
+
+1. Copy file `.env.docker` to `.env`
+2. Run `$ docker-compose build`
+3. Run `$ docker-compose up`
